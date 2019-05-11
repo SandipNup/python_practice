@@ -1,0 +1,496 @@
+1>>Create a function to sum Input Numbers (parameters) which returns sum of inputed numbers. Also write Unittest for the function.
+
+def my_sum(numbers):
+	total=0
+	for x in numbers:
+		total += x
+	return total
+
+print(my_sum((1,2))
+print(my_sum((1,2,3))
+print(my_sum((1,3,5,7,8))
+
+
+2>>Consider a dictionary
+	d = {1:1, 2:2, 3:3}
+    A-->It will through an key error as the dictionary does not have the value with key 4.
+    B-->d[2]=9
+    C-->
+	d={1:1,2:2,3:3}
+	print(d[2])
+
+3>>Consider a function
+
+def student(name, roll, age, address):
+    print(name, roll, age, address)
+
+	a-->student(“pratima”, name=”pratima”, 20, 20, 20) :: shows an error cannot have non keyword argument after keyword arg
+	b-->student(“pratima”, 20, age=25, “kathmandu”)   :: shows an error cannot have non keyword argument after keyword arg
+	c-->student(“pratima”)  ::  shows an error student takes exactly 4 argument.
+
+
+
+Q4.
+Whats the difference between tuple and list.
+   -->>lists are mutable whereas tuple are immutable
+		a = ["apples", "bananas", "oranges"] LIST
+		a = ("apples", "bananas", "oranges") TUPLE
+
+
+	Consider a list
+	l = [1,2,3,4,5,6,7,8,9]
+
+	-->>To get last four items  :: l[-4:]
+
+
+
+Q5.
+
+consider a function
+
+def aappend(item , lst):
+    return lst.append(item)
+
+a = aappend(1, [])   #prints None as the function is not returning the list.so a is just take 1 and append it to the list.
+print(a)
+
+b = aappend(2, a)    #shows an error because a is not the list and 2 cannot be appended on this. 
+print(b)
+
+c = aappend(3, [])   #prints None as the function is not returning the list.so c is just take 3 and append it to the empty list but is not print(c)				returning the list.
+
+
+
+Q6.
+
+def aappend(item , lst=[]):
+    lst = []
+    return lst.append(item)
+
+a = aappend(1, [])   
+print(a)              #prints None as the aappend function is not returning the list 
+
+b = aappend(2, a)     #as a is an empty list and the function does not returns the list.The b has the none value.
+print(b)
+
+c = aappend(3, [])    #the aapend functions appends 3 to an empty list but the function is not returning anything so c has none value.
+print(c)
+
+
+Q7.
+
+def aappend(item , lst):
+    lst = []
+    lst.append(item)
+    return lst
+
+a = aappend(1, [])    #as the function is returning the list and 1 is appended to the empty list.so a prints 1
+print(a)
+
+b = aappend(2, a)     #here we have passed a=[1] as a list to our function but inside the function we have lst=[] which makes it empty list 
+print(b)	      #and  2 is again appended to the empty list and assigned to value b 
+
+
+c = aappend(3, [])    #as the function is returning the list and 3 is appended to the empty list.so it prints 3
+print(c)
+
+
+
+Q8.
+
+def aappend(item , lst):
+    lst.append(item)
+    return lst
+
+a = aappend(1, [])    #appends 1 to the empty list and returns the list.so the output is list a=[1]
+print(a)
+
+b = aappend(2, a)     #appends 2 to the list a=[1] and returns the list so the output is list b=[1,2]
+print(b)
+
+c = aappend(3, [])    #appends 3 to an empty list and returns the list..so the output is list c=[3]
+print(c)
+
+
+
+Q9.
+
+
+class Dog:
+
+    kind = 'canine'         
+
+    def __init__(self, name):
+        self.name = name    # instance variable unique to each instance
+
+>>> d = Dog('Fido')
+>>> e = Dog('Buddy')
+
+What Is the output of 
+d.kind    #the output is canine
+
+d.name    #the output is fido
+
+e.kind    ##the output is canine
+e.name    #output is buddy
+
+
+Q10.
+
+d.kind=”white”
+d.name=”john”
+e.name=”jonny”
+
+what will be output of 
+
+d.kind   #the output will be white
+e.kind   #the output will be canine
+d.type   #throws error: Dog instance has no attribute type
+e.type	 #throws error: Dog instance has no attribute type
+ 
+
+
+
+Q11.
+
+Create a Iteratr class for givng numbers up to given input values.
+
+
+e.g. b = IteratorBee(10), returns same.
+
+Create a generator function factors to give factors of input.
+def factors(n):
+    ………………….
+
+	#Iteratr class
+	
+	class Iteratr:
+		def __init__(self,number):
+			self.number=range(number)
+			iterator=iter(self.number)
+		while True:
+			try:
+				item=next(iterator)
+			expect StopIteration:
+				break
+			else:
+				print(item)
+
+	Iteratr(10)
+
+	
+	
+	#generator function
+	def factors(n):
+		for i in range(1,n):
+			if n % i ==0:
+				yeild i
+
+	gen_obj=factors(10)
+	for obj in gen_obj:
+		print(obj)
+
+
+
+Q12.
+
+Write a program to create a flie name bee.txt write “hello bee to it”
+
+write another program to read the contents of bee.txt in uppercase.
+
+-->>
+	#file to create bee.txt
+
+	f=open("bee.txt","w")
+	f.write("hello be to it")
+	f.close()
+
+
+
+	#file to read bee.txt
+	
+	f=open("bee.txt","r")
+	content=f.read()
+	
+	b=open("bee.txt","w")
+	b.write(content.upper())
+
+	f=open("bee.txt",r)
+	f.read()
+
+
+
+Q13.
+
+Write a function to give squareroot of a value if it is int or float, raise an exception otherwise.
+def sqt(x):
+……….	
+
+	def sqt(x):
+		if type(x)==int or type(x)==float:
+			return x*x
+		else:
+			raise Exception("Not an integer or float")
+		
+
+
+Q14.
+Write a short program that takes as input three integers, a, b, and c, from the console and determines if they can be used in a correct arithmetic formula (in the given order), like “a+b = c,” “a = b−c,” or “a ∗ b = c.”
+
+
+-->>    
+		a=input("enter the value of a ")
+		b=input("enter the value of b ")
+		c=input("enter the value of c ")
+
+
+		if (a+b)==c:
+			print("The value satisfie the a+b=c")
+
+		elif a==(b-c):
+			print("The value satisfies a=b-c")
+
+		elif (a*b)==c:
+			print("The value satisfies a*b=c")
+
+		else:
+			print("The value doesnot satisfy any of the condition")
+
+
+
+
+
+
+
+
+Q17
+Class CreditCard :
+ Fields:  balance limit  customer account  bank
+Behaviors: make payment(amount) get customer( ) get bank( ) get account( ), get balance( ) get limit( ) charge(price)
+
+Implement Class for CreditCard and document it
+
+
+	class CreditCard:
+		def __init__(self,balance,limit,cutomer,account,bank):
+			self.balance=balance
+			self.limit=limit
+			self.customer=customer
+			self.account=account
+			self.bank=bank
+
+		def makePayment(self):
+			print("Payment is made")
+
+		def getCustomer(self):
+			print(self.customer)
+
+		def getBank(self):
+			print(self.bank)
+
+		def getAccount(self):
+			print(self.account)
+			
+		def getBalacne(self):
+			print(self.balance)
+
+		def getLimit(self):
+			print(self.limit)
+
+		def charge(self):
+			print("The charge is ...")
+	
+	a=CreditCard(2000,500,"sandip","saving","SBI")
+	a.makePayement()
+	a.getCustomer()
+	a.getBank()
+	a.getBalance()
+	a.getLimit()
+	a.charge()
+
+
+Create class PredatoryCreditCard
+fields: apr (annual percentage rate)
+behavoours : charge(price)
+
+
+	class PredatoryCreditCard:
+		def __init__(self,principal,apr):
+			self.principal=principal
+			self.apr=apr
+
+		"""Annual charge based on the principal and apr"""
+		def charge(self):
+			chrg=(self.apr *principal)/100
+			return chrg
+
+	a=Predatory(5000,5)
+	a.charge()
+
+
+Q18
+Create a class Building 
+Create Appartment, House  and Commercial Building class inheriting Building class.
+
+
+-->> 
+	Class Building:
+		def __init__(self,area,location):
+			self.area=area
+			self.location=location
+	
+	class Apartment(Building):
+		def __init__(self,area,location,room,apartmentNo):
+			Building.__init__(self,area,location)
+			self.room=room
+			self.apartmentNo=apartmentNo
+
+	class House(Building):
+		def __init__(self,area,location,houseNo):
+			Building.__init__(self,area,location)
+			self.houseNo=houseNo
+	
+		
+	class CommercialBuilding(Building):
+		def __init__(self,area,location,cost,noOfApartment):
+			Building.__init__(self,area,location)
+			self.cost=cost
+			self.noOfApartment=noOfApartment
+
+
+
+Q19
+class Progression: 
+2 ”””Iterator producing a generic progression. 
+3 
+4 Default iterator produces the whole numbers 0, 1, 2, ... 
+5 ””” 
+6 
+7 def init (self, start=0): 
+8 ”””Initialize current to the first value of the progression.””” 
+9 self. current = start 
+10 
+11 def advance(self): 
+12 ”””Update self. current to a new value. 
+13 
+14 This should be overridden by a subclass to customize progression. 
+15 
+16 By convention, if current is set to None, this designates the 
+17 end of a finite progression. 
+18 ””” 
+19 self. current += 1 
+20 
+21 def next (self): 
+22 ”””Return the next element, or else raise StopIteration error.””” 
+23 if self. current is None: # our convention to end a progression 
+24 raise StopIteration( ) 
+25 else: 
+26 answer = self. current # record current value to return 
+27 self. advance( ) # advance to prepare for next time 
+28 return answer # return the answer 
+29 
+30 def iter (self): 
+31 ”””By convention, an iterator must return itself as an iterator.””” 
+32 return self 
+33 
+34 def print progression(self, n)
+35 ”””Print next n values of the progression.””” 
+36 print( .join(str(next(self)) for j in range(n)))
+
+
+		
+
+a. Create implementation of an ArithmeticProgression class, which relies on Progression as its base class. The constructor for this new class accepts both an increment value and a starting value as parameters, although default values for each are provided. By our convention, ArithmeticProgression(4) produces the sequence 0,4,
+
+	class ArithmaticProgression:
+		def __init__(self,value,max):
+			self.value=value
+			self.max=max
+		
+		def __iter__(self):
+			self.n=0
+			return self
+
+		def next(self):
+			if self.n <= self.max:
+				reasult=self.n * self.value
+				self.n += 1
+				return reasult
+
+			else:
+				raise StopIteration
+
+
+	for i in ArithmaticProgression(4,5):
+		print i
+			
+
+
+b.
+Implementation of geometric progression, in which each value is produced by multiplying the preceding value by a fixed constant, known as the base of the geometric progression. The starting point of a geometric progression is traditionally 1, rather than 0, because multiplying 0 by any factor results in 0. As an example, a geometric progression with base 2 proceeds as 1,2,4,8,16,... .
+
+	class GeometricProgression:
+		def __init__(self,const,max):
+			self.const=const
+			self.max=max
+
+		def __iter__(self):
+			self.n=0
+			return self
+
+		def next(self):
+			if self.n == 0:
+				reasult=self.const *1 
+				self.n += 1
+				return reasult
+			
+			elif self.n <=self.max:
+				reasult=reasult * const
+				self.n +=1
+				return reasult
+
+			else:
+				raisse StopIteration
+
+	for i in GeometricProgression(3,5):
+		"""prints 1,3,9,27,81"""
+		
+		print(i)
+
+			
+
+c.
+Implement
+class FibonacciProgression(Progression): 
+”””Iterator producing a generalized Fibonacci progression.”””
+
+For example, if we start with values 4 and 6, the series proceeds as 4,6,10,16,26,42,.
+
+
+class Fib:                                        
+     def __init__(self,a,b,maxx):
+         self.a=a
+         self.b=b                      
+         self.maxx = maxx
+ 
+     def __iter__(self):
+         self.n=0                           
+         return self
+ 
+     def next(self):                           
+         if self.n <= self.maxx:
+             self.n += 1
+             result=self.a + self.b
+             self.a=self.b
+             self.b=result
+             
+             return result
+         else:
+             raise StopIteration
+
+for i in FibonacciProgression(4,6,10):
+	print(i)
+			
+			
+
+	
